@@ -26,7 +26,7 @@ OBJS = \
 	native/System.Threading.Monitor.o native/System.Threading.Thread.o native/System.ValueType.o \
 	native/System.WeakReference.o native/System.Console.o native/diet-glob.o native/diet-fnmatch.o \
 	native/controls.o native/Psp.Debug.o native/Psp.Controls.o  native/Psp.Display.o native/Psp.Kernel.o \
-	native/graph.o native/Psp.BasicGraphics.o native/Psp.BasicGraphics2.o 
+	native/graph.o native/Psp.BasicGraphics.o native/Psp.BasicGraphics2.o native/Psp.SceGraphics.o 
 
 CFLAGS = -Os -I. -g -G3 -D__PSP__ #-Wall -Werror 
 CXXFLAGS = $(CFLAGS) -std=c++14 -fno-rtti  #-fn0-exception
@@ -57,7 +57,7 @@ include pspbuild.mak
 
 all: managed native
 
-managed: appmenu simple tet flappy rockbound2
+managed: appmenu simple tet flappy rockbound2 triangle
 
 corelib: fonts res
 	${DOTNET} ${DOTNETFLAGS} corlib/corlib.csproj
@@ -103,6 +103,12 @@ rockbound2app: corelib
 
 rockbound2res:
 	cp -p -R rockbound2/res $(BUILD_DIR)
+
+triangle: corelib
+	${CSC} ${CSCFLAGS} -reference:${CSCLIBS} -out:$(BUILD_DIR)/apps/triangle.exe triangle/Program.cs
+
+triangleapp: corelib
+	${CSC} ${CSCFLAGS} -reference:${CSCLIBS} -out:$(BUILD_DIR)/Dna.AppMenu.exe triangle/Program.cs
 run:
 	rm -rf $(BUILD_DIR)/log.bak
 	[ ! -f $(BUILD_DIR)/log.txt ] || mv $(BUILD_DIR)/log.txt $(BUILD_DIR)/log.bak

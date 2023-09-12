@@ -10,6 +10,8 @@
         "sdl_config.h": "c",
         "sdl_ttf.h": "c",
         "pspkernel.h": "c",
-        "pspctrl.h": "c"
+        "pspctrl.h": "c",
+        "psp.scegraphics.h": "c",
+        "psp.basicgraphics.h": "c"
     }
 }

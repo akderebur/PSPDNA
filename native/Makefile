@@ -9,7 +9,7 @@ OBJS = CLIFile.o Delegate.o Finalizer.o Generics.o Heap.o InternalCall.o \
 	   System.RuntimeType.o System.String.o System.Type.o System.Threading.Interlocked.o \
 	   System.Threading.Monitor.o System.Threading.Thread.o System.ValueType.o System.WeakReference.o \
 	   System.Console.o controls.o Psp.Debug.o Psp.Controls.o \
-	   Psp.Display.o Psp.Kernel.o graph_sdl.o Psp.BasicGraphics.o Psp.BasicGraphics2.o \
+	   Psp.Display.o Psp.Kernel.o graph_sdl.o Psp.BasicGraphics.o Psp.BasicGraphics2.o Psp.SceGraphics.o \
 	   callback.o dna.o 
 
 CFLAGS = -Os -I. -g -O0 #-Wall -Werror 

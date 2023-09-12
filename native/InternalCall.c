@@ -56,6 +56,7 @@
 #include "Psp.Kernel.h"
 #include "Psp.Display.h"
 #include "Psp.BasicGraphics.h"
+#include "Psp.SceGraphics.h"
 
 #define MAX_PARAMS 6
 
@@ -222,6 +223,15 @@ static tInternalCall internalCalls[] = {
 	{NULL,             NULL, "NativeCreateTexture",  Psp_BasicGraphics_nativeCreateTexture2, TYPE_SYSTEM_INTPTR, 1, {TYPE_SYSTEM_INTPTR}},
     {NULL,             NULL, "NativeSetColorKey",  Psp_BasicGraphics_nativeSetColorKey2, TYPE_SYSTEM_INT32, 3, {TYPE_SYSTEM_INTPTR,TYPE_SYSTEM_INT32,TYPE_SYSTEM_UINT32}},	
 	{NULL,             NULL, "NativeDrawTexture",  Psp_BasicGraphics_nativeDrawTexture2, TYPE_SYSTEM_INT32, 5, {TYPE_SYSTEM_INTPTR,TYPE_SYSTEM_INT32,TYPE_SYSTEM_INT32,TYPE_SYSTEM_INT32,TYPE_SYSTEM_INT32}},
+
+	{NULL, "SceGraphics", "Init",            Psp_SceGraphics_nativeInit, TYPE_SYSTEM_VOID, 0},
+	{NULL,             NULL, "StartFrame",     Psp_SceGraphics_nativeStartFrame, TYPE_SYSTEM_VOID, 0},
+    {NULL,             NULL, "SceClear",     Psp_SceGraphics_nativeClear, TYPE_SYSTEM_VOID, 1, {TYPE_SYSTEM_UINT32}},
+	{NULL,             NULL, "EndFrame",     Psp_SceGraphics_nativeEndFrame, TYPE_SYSTEM_VOID, 0},
+	{NULL,             NULL, "Terminate",     Psp_SceGraphics_nativeTerminate, TYPE_SYSTEM_VOID, 0},
+	{NULL,             NULL, "ProjectionOrtho",     Psp_SceGraphics_nativeProjectionOrtho, TYPE_SYSTEM_VOID, 6, {TYPE_SYSTEM_SINGLE,TYPE_SYSTEM_SINGLE,TYPE_SYSTEM_SINGLE,TYPE_SYSTEM_SINGLE,TYPE_SYSTEM_SINGLE,TYPE_SYSTEM_SINGLE}},
+	{NULL,             NULL, "DrawVertices",     Psp_SceGraphics_nativeDrawVertices, TYPE_SYSTEM_VOID, 2, {TYPE_SYSTEM_ARRAY_NO_TYPE, TYPE_SYSTEM_INT32}},
+
 
 	{NULL, NULL, NULL, NULL}
 };
